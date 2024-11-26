@@ -1,0 +1,28 @@
+<div *ngIf="redditItems$ | async as resultObject; else loading">
+  <table class="reddit-table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of resultObject; trackBy: trackByDisplayName">
+        <td>{{ item.id }}</td>
+        <td>{{ item.title }}</td>
+        <td>{{ item.description }}</td>
+        <td><a [href]="item.url" target="_blank">Ver</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <p>Cargando datos...</p>
+</ng-template>
+
+<div *ngIf="errorMessage">
+  <app-error-message [errorMessage]="errorMessage"></app-error-message>
+</div>

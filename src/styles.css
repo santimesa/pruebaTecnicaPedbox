@@ -1,5 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/pokemon-solid");
-
+/* Reset de márgenes, padding y box-sizing para todos los elementos */
 *,
 *::after,
 *::before {
@@ -8,18 +7,64 @@
   box-sizing: border-box;
 }
 
+/* Estilo para el body de la página */
 body {
-  font-family: "Pokemon Solid", sans-serif;
-  color: #ffde00;
-  text-shadow: 2px 3px #3b4cca;
-  letter-spacing: 2px;
-  -webkit-text-stroke: 1px #0007;
-  height: 100vh;
-  background: rgb(56, 182, 255);
+  font-family: Arial, sans-serif; /* Fuente predeterminada */
+  color: #333; /* Color de texto más oscuro para mejorar la legibilidad */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+  background: rgb(0, 123, 255); /* Color de fondo suave (azul claro) */
   background: radial-gradient(
     circle,
-    rgba(56, 182, 255, 1) 0%,
-    rgba(0, 74, 173, 1) 100%,
-    rgba(0, 74, 173, 1) 100%
+    rgba(0, 123, 255, 1) 0%,  /* Color inicial del gradiente */
+    rgba(0, 51, 204, 1) 100%   /* Color final del gradiente */
   );
+}
+
+/* Estilo de las tarjetas de Reddit */
+.reddit-card {
+  background-color: #007bff; /* Fondo azul para la tarjeta */
+  border-radius: 8px; /* Bordes redondeados más suaves */
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar profundidad */
+  font-size: 1.25rem; /* Tamaño de fuente moderado */
+  padding: 20px; /* Espaciado interno */
+  margin: 15px; /* Margen alrededor de la tarjeta */
+  color: white; /* Color del texto */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efecto de transición suave */
+}
+
+/* Efecto de hover para las tarjetas */
+.reddit-card:hover {
+  transform: scale(1.05); /* Aumenta el tamaño cuando se pasa el ratón */
+  box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada en hover */
+}
+
+/* Ajustes generales para la lista de Reddit */
+.reddit-list {
+  list-style-type: none; /* Eliminar puntos de la lista */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Estilo de los elementos individuales de la lista */
+.reddit-list li {
+  margin: 15px; /* Separación entre los elementos de la lista */
+  width: calc(33% - 30px); /* Tres elementos por fila, con márgenes */
+}
+
+/* Para pantallas pequeñas (tamaño móvil) */
+@media (max-width: 768px) {
+  .reddit-list li {
+    width: calc(50% - 30px); /* Dos elementos por fila en pantallas pequeñas */
+  }
+}
+
+/* Para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  .reddit-list li {
+    width: 100%; /* Un solo elemento por fila en móviles */
+  }
 }
