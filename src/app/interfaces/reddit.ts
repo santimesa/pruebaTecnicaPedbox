@@ -14,6 +14,7 @@ export interface RedditItem {
     description: string;
     banner_color_id: number;
     icon_img_id: number;
+    icon_img: string;
     name: string; // Asegura que la propiedad 'name' esté aquí si es necesaria
   }
   

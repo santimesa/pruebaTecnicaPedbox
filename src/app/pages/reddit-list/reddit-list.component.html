@@ -2,10 +2,10 @@
   <table class="reddit-table">
     <thead>
       <tr>
-        <th>id</th>
+        <th>ID</th>
         <th>Título</th>
         <th>Descripción</th>
-        <th>URL</th>
+        <th>Acción</th>
       </tr>
     </thead>
     <tbody>
@@ -13,7 +13,9 @@
         <td>{{ item.id }}</td>
         <td>{{ item.title }}</td>
         <td>{{ item.description }}</td>
-        <td><a [href]="item.url" target="_blank">Ver</a></td>
+        <td>
+          <button (click)="openModal(item)">Ver</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -25,4 +27,14 @@
 
 <div *ngIf="errorMessage">
   <app-error-message [errorMessage]="errorMessage"></app-error-message>
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="selectedItem" (click)="closeModal()">
+  <div class="modal-content" (click)="stopPropagation($event)">
+    <h2>{{ selectedItem.title }}</h2>
+    <p>{{ selectedItem.description }}</p>
+    <p><a [href]="selectedItem.icon_img" target="_blank">Ir ala Imagen</a></p>
+    <button (click)="closeModal()">Cerrar</button>
+  </div>
 </div>
